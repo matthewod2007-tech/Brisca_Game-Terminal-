@@ -81,7 +81,7 @@ public class Game {
     }
     public void ShowCardDesing(ArrayList<Card> hadn)
     {
-        
+        // This will be a method so instead of printing the card type and point, it will print the desing of the card or as close as possible        
     }
 
 

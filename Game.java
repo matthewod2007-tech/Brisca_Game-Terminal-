@@ -79,6 +79,10 @@ public class Game {
         int rand = (int) (Math.random() * 3) + 1;
         return rand;
     }
+    public void ShowCardDesing(ArrayList<Card> hadn)
+    {
+        
+    }
 
 
 

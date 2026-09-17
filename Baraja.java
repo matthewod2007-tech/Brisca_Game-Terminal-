@@ -5,7 +5,7 @@ import java.util.Collections;
 public class Baraja {
 
     private final int[] RANK = {1, 2, 3, 4, 5, 6, 7, 10, 11, 12};
-    private final int[] POINTS = {11, 0, 0, 0, 0, 0, 0, 2, 3, 4};
+    private final int[] POINTS = {11, 0, 10, 0, 0, 0, 0, 2, 3, 4};
     private final int[] POWER = {10, 1, 9, 2, 3, 4, 5, 6, 7, 8};
 
     public ArrayList<Card> HacerBaraja() {

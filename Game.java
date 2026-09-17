@@ -54,16 +54,20 @@ public class Game {
 
     }
 
-    public void CartaUsada(ArrayList<Card> hand, int selected) {
+    public int CartaUsada(ArrayList<Card> hand, int selected) {
         int index = selected - 1;
 
         if (index >= 0 && index < hand.size()) { // metodo de prueba
             Card usedCard = hand.get(index);
             System.out.println("Carta usada: " + usedCard);
+            int point = usedCard.getPoints();
 
             hand.remove(index);
+            return point;
+            
         } else {
             System.out.println("Seleccion invalida");
+            return 0;
         }
     }
 
@@ -79,7 +83,9 @@ public class Game {
         int rand = (int) (Math.random() * 3) + 1;
         return rand;
     }
-
-
+    public void ShowCardDesing(ArrayList<Card> hadn)
+    {
+        // This will be a method so instead of printing the card type and point, it will print the desing of the card or as close as possible        
+    }
 
 }

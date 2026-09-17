@@ -23,8 +23,12 @@ public class PlayGame {
         Scanner scan = new Scanner(System.in);
         Game game = new Game();
 
+        int pointP =0;
+        int pointA=0;
+
+
         Card vida = Mezcla.get(game.numeroRandom());
-        manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
+    manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
         manoDeIA = game.DarCartas(Mezcla, inicioDeMano);
 
         while (continuar) {
@@ -56,11 +60,32 @@ public class PlayGame {
                 System.out.println("Perdiste la mano");
                 ganaste = false;
             }
+
+            
            
            try{
-            game.CartaUsada(manoDelJugador, seleccion);
-            game.CartaUsada(manoDeIA, IaUsa);}catch(Exception e){
+            int playerpointnew = game.CartaUsada(manoDelJugador, seleccion);
+            int iaPointnew = game.CartaUsada(manoDeIA, IaUsa);
+
+            if(winnerOfHand){
+            pointP = pointP + playerpointnew;
+
+            }else{
+            pointA = pointA + iaPointnew;
+
             }
+        
+            }catch(Exception e){
+            }
+
+
+
+            System.out.println();
+            System.out.println("player points:"+pointP);
+            System.out.println("Ai Points: "+pointA);
+
+
+
 
            if(manoDelJugador.size() !=1 && manoDeIA.size() != 1){ 
             game.refill(Mezcla, manoDelJugador);
@@ -68,7 +93,7 @@ public class PlayGame {
 
             scan.nextLine();
            
-            clearScreen();
+          clearScreen();
 
            if(Mezcla.isEmpty()&&manoDelJugador.isEmpty()&&manoDeIA.isEmpty())
            {

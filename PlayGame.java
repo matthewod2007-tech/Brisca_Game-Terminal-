@@ -11,6 +11,7 @@ public class PlayGame {
 
     public static void main(String[] args) {
         PlayGame app = new PlayGame();
+        clearScreen();
         app.runapp();
     }
 

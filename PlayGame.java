@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class PlayGame {
 
@@ -11,6 +12,21 @@ public class PlayGame {
 
     public static void main(String[] args) {
         PlayGame app = new PlayGame();
+        String logo = """
+              ||  ||  
+              \\\\()//  
+             //(__)\\\\ 
+             ||    || 
+             """;
+
+        System.out.println(logo);
+
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         clearScreen();
         app.runapp();
     }
@@ -29,7 +45,7 @@ public class PlayGame {
 
 
         Card vida = Mezcla.get(game.numeroRandom());
-    manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
+        manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
         manoDeIA = game.DarCartas(Mezcla, inicioDeMano);
 
         while (continuar) {

@@ -79,7 +79,12 @@ public class Game {
         }
     }
 
-    public int numeroRandom() {
+    public int numeroRandom(ArrayList<Card> hand) {
+
+        if(hand.size() <= 1){
+            return 1;
+        }
+
         int rand = (int) (Math.random() * 3) + 1;
         return rand;
     }

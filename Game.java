@@ -83,6 +83,9 @@ public class Game {
 
         if(hand.size() <= 1){
             return 1;
+        }else if(hand.size() == 2){
+            int rand = (int) (Math.random()*2) +1;
+            return rand;
         }
 
         int rand = (int) (Math.random() * 3) + 1;

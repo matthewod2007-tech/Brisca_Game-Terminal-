@@ -43,7 +43,7 @@ public abstract class Card {
         return "+-----+\n" +
                "|" + r + "   |\n" +
                "|  " + symbol + "  |\n" +
-               "|   " + r.trim() + "|\n" +
+               "|   " + r.trim() +  " |\n" +
                "+-----+";
     }
     

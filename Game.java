@@ -96,6 +96,7 @@ public class Game {
     public void showCard(ArrayList<Card> hand){
         if(hand.size() == 1){
             System.out.println(hand.get(0).toAscii());
+            return;
         }
 
         for(int i=0; i < hand.size(); i++){

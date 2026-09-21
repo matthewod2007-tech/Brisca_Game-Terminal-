@@ -12,19 +12,18 @@ public class main {
 
     public static void main(String[] args) {
         main app = new main();
-        String logo = """
-              ||  ||  
-              \\\\()//  
-             //(__)\\\\ 
-             ||    || 
-             """;
+        String logo = 
+    " ____  ____  __  ____   ___   __  \n" +
+    "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
+    " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
+    "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
 
         System.out.println(logo);
 
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
+            System.err.println("Error on first time unit");
             e.printStackTrace();
         }
         clearScreen();
@@ -43,6 +42,13 @@ public class main {
         int pointP =0;
         int pointA=0;
 
+        String symbols = """
+        o = oro
+        u = espada
+        † = batuco
+        I = copa
+                """;
+
 
         Card vida = Mezcla.get(game.numeroRandom(manoDeIA));
         manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
@@ -56,17 +62,19 @@ public class main {
             System.out.println("Tu mano ->");
 
             game.showCard(manoDelJugador);
+            System.out.println(symbols);
             //game.motrarMano(manoDelJugador);
             //System.out.println();
 
             System.out.print("Elige la carta: ");
             String ansString = scan.nextLine();
             if(ansString.isEmpty()){
+                clearScreen();
                 System.out.println("Elige algo");
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (Exception e) {
-                    // TODO: handle exception
+                    System.err.println("Error on second time unit");
                 }
                 
                 clearScreen();
@@ -75,10 +83,9 @@ public class main {
             seleccion = Integer.parseInt(ansString);
             }catch(Exception e){}
             int IaUsa = game.numeroRandom(manoDeIA);
-            
-            System.out.println();
-            System.out.println();
-            boolean winnerOfHand = game.GanadorDeMano(manoDelJugador, manoDeIA, seleccion, IaUsa, vida);
+            clearScreen();
+
+            boolean winnerOfHand = game.GanadorDeMano(manoDelJugador, manoDeIA, seleccion, IaUsa, vida); 
             if (winnerOfHand) {
                 System.out.println("Ganaste la mano");
                 ganaste = true;
@@ -88,9 +95,10 @@ public class main {
                 ganaste = false;
             }
 
-           
+          System.out.println();
            try{
             int playerpointnew = game.CartaUsada(manoDelJugador, seleccion);
+            System.out.println();
             int iaPointnew = game.CartaUsada(manoDeIA, IaUsa);
 
             int RoundPoints= playerpointnew + iaPointnew;
@@ -131,12 +139,11 @@ public class main {
             }else{System.out.println("La ia gano.");}
 
                 System.out.println("Se termino el juego!!!!!");
-                String logo = """
-              ||  ||  
-              \\\\()//  
-             //(__)\\\\ 
-             ||    || 
-             """;
+                String logo = 
+    " ____  ____  __  ____   ___   __  \n" +
+    "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
+    " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
+    "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
 
             System.out.println(logo);   
                 continuar = false;

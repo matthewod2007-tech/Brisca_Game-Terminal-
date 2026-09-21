@@ -59,7 +59,9 @@ public class Game {
 
         if (index >= 0 && index < hand.size()) { // metodo de prueba
             Card usedCard = hand.get(index);
-            System.out.println("Carta usada: " + usedCard);
+            System.out.println("Used cards ->");
+            System.out.println(usedCard.toAscii());
+            System.out.println(usedCard.toString());
             int point = usedCard.getPoints();
 
             hand.remove(index);

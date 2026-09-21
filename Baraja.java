@@ -20,7 +20,7 @@ public class Baraja {
         return deck;
     }
 
-    public ArrayList<Card> MezclarCartas(ArrayList deck) {
+    public ArrayList<Card> MezclarCartas(ArrayList<Card> deck) {
         Collections.shuffle(deck);
         return deck;
     }

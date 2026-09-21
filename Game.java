@@ -91,9 +91,17 @@ public class Game {
         int rand = (int) (Math.random() * 3) + 1;
         return rand;
     }
-    public void ShowCardDesing(ArrayList<Card> hadn)
-    {
-        // This will be a method so instead of printing the card type and point, it will print the desing of the card or as close as possible        
+
+
+    public void showCard(ArrayList<Card> hand){
+        if(hand.size() == 1){
+            System.out.println(hand.get(0).toAscii());
+        }
+
+        for(int i=0; i < hand.size(); i++){
+            System.out.println("("+(i+1)+")");
+            System.out.println(hand.get(i).toAscii());
+        }
     }
 
 }

@@ -53,8 +53,10 @@ public class main {
             System.out.print("VIDA ->");
             System.out.print(vida.getSuitName());
             System.out.println();
-            System.out.println("Tu mano ->");
-            game.motrarMano(manoDelJugador);
+            //System.out.println("Tu mano ->");
+            //game.motrarMano(manoDelJugador);
+            game.showCard(manoDelJugador);
+
             System.out.println();
 
             // System.out.println("Manode de IA ->");
@@ -128,7 +130,7 @@ public class main {
            {
 
             if(pointP>pointA){
-                System.out.println("YOU WON!!!");
+                System.out.println("YOU WON!!!!!");
             }else{System.out.println("La ia gano.");}
 
                 System.out.println("Se termino el juego!!!!!");

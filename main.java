@@ -11,9 +11,14 @@ public class main {
     boolean continuar = true;
 
     public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread(()->{
+            clearScreen();
+            System.out.println("Gracias por jugar");
+        }));
+
         main app = new main();
         String logo = 
-    " ____  ____  __  ____   ___   __  \n" +
+
     "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
     " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
     "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
@@ -152,7 +157,9 @@ public class main {
 
 
         }
-
+        try{
+            TimeUnit.SECONDS.sleep(2);           
+        }catch(Exception e){System.err.println("Error Third time unit");}
         scan.close();
     }
 

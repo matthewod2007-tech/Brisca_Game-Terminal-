@@ -11,18 +11,18 @@ public class main {
     boolean continuar = true;
 
     public static void main(String[] args) {
-        Runtime.getRuntime().addShutdownHook(new Thread(()->{
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             clearScreen();
             System.out.println("Gracias por jugar");
         }));
 
         main app = new main();
         clearScreen();
-        String logo = 
+        String logo =
 
-    "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
-    " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
-    "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
+                "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
+                        " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
+                        "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
 
         System.out.println(logo);
 
@@ -38,23 +38,22 @@ public class main {
 
     public void runapp() {
         boolean ganaste = false;
-        int seleccion =0;
+        int seleccion = 0;
         Baraja deck = new Baraja();
         ArrayList<Card> baraja = deck.HacerBaraja();
         ArrayList<Card> Mezcla = deck.MezclarCartas(baraja);
         Scanner scan = new Scanner(System.in);
         Game game = new Game();
 
-        int pointP =0;
-        int pointA=0;
+        int pointP = 0;
+        int pointA = 0;
 
         String symbols = """
-        o = oro
-        u = espada
-        † = batuco
-        I = copa
-                """;
-
+                o = oro
+                u = espada
+                † = batuco
+                I = copa
+                        """;
 
         Card vida = Mezcla.get(game.numeroRandom(manoDeIA));
         manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
@@ -69,12 +68,12 @@ public class main {
 
             game.showCard(manoDelJugador);
             System.out.println(symbols);
-            //game.motrarMano(manoDelJugador);
-            //System.out.println();
+            // game.motrarMano(manoDelJugador);
+            // System.out.println();
 
             System.out.print("Elige la carta: ");
             String ansString = scan.nextLine();
-            if(ansString.isEmpty()){
+            if (ansString.isEmpty()) {
                 clearScreen();
                 System.out.println("Elige algo");
                 try {
@@ -82,18 +81,20 @@ public class main {
                 } catch (Exception e) {
                     System.err.println("Error on second time unit");
                 }
-                
+
                 clearScreen();
-                continue;}
-            try{
-            seleccion = Integer.parseInt(ansString);
-            }catch(Exception e){}
-            Card playerCard = manoDelJugador.get(seleccion-1);
+                continue;
+            }
+            try {
+                seleccion = Integer.parseInt(ansString);
+            } catch (Exception e) {
+            }
+            Card playerCard = manoDelJugador.get(seleccion - 1);
             int IaUsa = game.decidirCartaIA(playerCard, manoDeIA, vida, pointP, pointA);
-            //int IaUsa = game.numeroRandom(manoDeIA);
+            // int IaUsa = game.numeroRandom(manoDeIA);
             clearScreen();
 
-            boolean winnerOfHand = game.GanadorDeMano(manoDelJugador, manoDeIA, seleccion, IaUsa, vida); 
+            boolean winnerOfHand = game.GanadorDeMano(manoDelJugador, manoDeIA, seleccion, IaUsa, vida);
             if (winnerOfHand) {
                 System.out.println("Ganaste la mano");
                 ganaste = true;
@@ -103,73 +104,70 @@ public class main {
                 ganaste = false;
             }
 
-          System.out.println();
-           try{
-            int playerpointnew = game.CartaUsada(manoDelJugador, seleccion);
             System.out.println();
-            int iaPointnew = game.CartaUsada(manoDeIA, IaUsa);
+            try {
+                int playerpointnew = game.CartaUsada(manoDelJugador, seleccion);
+                System.out.println();
+                int iaPointnew = game.CartaUsada(manoDeIA, IaUsa);
 
-            int RoundPoints= playerpointnew + iaPointnew;
+                int RoundPoints = playerpointnew + iaPointnew;
 
-            if(winnerOfHand){
-            pointP = pointP + RoundPoints;
+                if (winnerOfHand) {
+                    pointP = pointP + RoundPoints;
 
-            }else{
-            pointA = pointA + RoundPoints;
+                } else {
+                    pointA = pointA + RoundPoints;
 
+                }
+
+            } catch (Exception e) {
             }
-        
-            }catch(Exception e){
-            }
-
-
 
             System.out.println();
-            System.out.println("Tus puntos:"+pointP);
-            System.out.println("Puntos de ia: "+pointA);
+            System.out.println("Tus puntos:" + pointP);
+            System.out.println("Puntos de ia: " + pointA);
 
-
-
-
-           if(manoDelJugador.size() !=1 && manoDeIA.size() != 1){ 
-            game.refill(Mezcla, manoDelJugador);
-            game.refill(Mezcla, manoDeIA);}
+            if (manoDelJugador.size() != 1 && manoDeIA.size() != 1) {
+                game.refill(Mezcla, manoDelJugador);
+                game.refill(Mezcla, manoDeIA);
+            }
 
             scan.nextLine();
-           
-          clearScreen();
 
-           if(Mezcla.isEmpty()&&manoDelJugador.isEmpty()&&manoDeIA.isEmpty())
-           {
+            clearScreen();
 
-            if(pointP>pointA){
-                System.out.println("YOU WON!!!");
-            }else{System.out.println("La ia gano.");}
+            if (Mezcla.isEmpty() && manoDelJugador.isEmpty() && manoDeIA.isEmpty()) {
+
+                if (pointP > pointA) {
+                    System.out.println("YOU WON!!!");
+                } else {
+                    System.out.println("La ia gano.");
+                }
 
                 System.out.println("Se termino el juego!!!!!");
-                String logo = 
-    " ____  ____  __  ____   ___   __  \n" +
-    "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
-    " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
-    "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
+                String logo = " ____  ____  __  ____   ___   __  \n" +
+                        "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
+                        " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
+                        "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
 
-            System.out.println(logo);   
+                System.out.println(logo);
                 continuar = false;
 
-           }
-
+            }
 
         }
-        try{
-            TimeUnit.SECONDS.sleep(2);           
-        }catch(Exception e){System.err.println("Error Third time unit");}
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (Exception e) {
+            System.err.println("Error Third time unit");
+        }
         scan.close();
     }
 
     private static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-    }                                       
-//This project will be trasnlated to python.
+    }
+    // This project will be trasnlated to python.
 
-}
+}       

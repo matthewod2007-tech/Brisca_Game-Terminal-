@@ -26,12 +26,7 @@ public class main {
 
         System.out.println(logo);
 
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            System.err.println("Error on first time unit");
-            e.printStackTrace();
-        }
+       waitSeconds(2);
         clearScreen();
         app.runapp();// runs all the
     }
@@ -76,12 +71,7 @@ public class main {
             if (ansString.isEmpty()) {
                 clearScreen();
                 System.out.println("Elige algo");
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (Exception e) {
-                    System.err.println("Error on second time unit");
-                }
-
+               waitSeconds(2);
                 clearScreen();
                 continue;
             }
@@ -132,7 +122,7 @@ public class main {
                 game.refill(Mezcla, manoDeIA);
             }
 
-            scan.nextLine();
+            waitSeconds(2);
 
             clearScreen();
 
@@ -156,17 +146,21 @@ public class main {
             }
 
         }
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (Exception e) {
-            System.err.println("Error Third time unit");
-        }
+        scan.nextLine();
         scan.close();
     }
 
     private static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    private static void waitSeconds(int s){
+        try {
+            TimeUnit.SECONDS.sleep(s);
+        } catch (Exception e) {
+            System.err.println("Error on timeUnit");
+        }
     }
     // This project will be trasnlated to python.
 

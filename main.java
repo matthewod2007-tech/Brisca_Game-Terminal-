@@ -17,6 +17,7 @@ public class main {
         }));
 
         main app = new main();
+        clearScreen();
         String logo = 
 
     "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
@@ -87,7 +88,9 @@ public class main {
             try{
             seleccion = Integer.parseInt(ansString);
             }catch(Exception e){}
-            int IaUsa = game.numeroRandom(manoDeIA);
+            Card playerCard = manoDelJugador.get(seleccion-1);
+            int IaUsa = game.decidirCartaIA(playerCard, manoDeIA, vida, pointP, pointA);
+            //int IaUsa = game.numeroRandom(manoDeIA);
             clearScreen();
 
             boolean winnerOfHand = game.GanadorDeMano(manoDelJugador, manoDeIA, seleccion, IaUsa, vida); 

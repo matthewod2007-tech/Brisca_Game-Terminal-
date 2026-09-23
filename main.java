@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class main {
 
+
+public class main {
+    
     ArrayList<Card> manoDelJugador = new ArrayList<>();
     ArrayList<Card> manoDeIA = new ArrayList<>();
 
@@ -14,18 +16,13 @@ public class main {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             clearScreen();
             System.out.println("Gracias por jugar");
+            printLogo();
         }));
 
         main app = new main();
         clearScreen();
-        String logo =
-
-                "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
-                        " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
-                        "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
-
-        System.out.println(logo);
-
+        
+       printLogo();
        waitSeconds(2);
         clearScreen();
         app.runapp();// runs all the
@@ -135,12 +132,8 @@ public class main {
                 }
 
                 System.out.println("Se termino el juego!!!!!");
-                String logo = " ____  ____  __  ____   ___   __  \n" +
-                        "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
-                        " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
-                        "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
-
-                System.out.println(logo);
+                
+                printLogo();
                 continuar = false;
 
             }
@@ -163,5 +156,14 @@ public class main {
         }
     }
     // This project will be trasnlated to python.
+    private static void printLogo(){
+        String logo =
 
-}       
+                "(  _ \\(  _ \\(  )/ ___) / __) / _\\ \n" +
+                        " ) _ ( )   / )( \\___ \\( (__ /   \\\n" +
+                        "(____/(__\\_)(__)(____/ \\___)\\_/\\_/";
+
+        System.out.println(logo);
+    }
+
+}   

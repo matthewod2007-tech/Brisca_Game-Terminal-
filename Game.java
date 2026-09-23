@@ -99,7 +99,7 @@ public class Game {
         }
     }
 
-    // metodos de prueba ->
+    // metdos de prueba ->
 
     public boolean ganaCarta(Card aiCard, Card playeCard, Card vida) {
         String vidaA = vida.getSuitName();
@@ -175,6 +175,7 @@ public class Game {
             boolean isTrump = c.getSuitName().equalsIgnoreCase(trumpSuit);
             int cost = (isTrump ? 1000 : 0) + (c.getPoints() * 100) + c.getPower();
             if (cost < minCost) {
+
                 minCost = cost;
                 bestIdx = idx;
             }

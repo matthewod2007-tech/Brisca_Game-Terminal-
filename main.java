@@ -55,6 +55,7 @@ public class main {
 
         while (continuar) {
             System.out.println("-".repeat(10) + "Brisca!" + "-".repeat(10));
+            System.out.println("Enter 2 for diffcult mode");
             difficultyString = scan.nextLine();
             difficulty = Integer.parseInt(difficultyString);
             System.out.print("VIDA ->");

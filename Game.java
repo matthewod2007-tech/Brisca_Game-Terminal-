@@ -39,7 +39,7 @@ public class Game {
             return true;
         } else if (!esVidaJugador && esVidaIA) {
             return false;
-        } else if (!esVidaJugador && !esVidaIA && !VIDAjugador.equals(VIDAia)) {
+        } else if (!esVidaJugador && !esVidaIA && !VIDAjugador.equals(VIDAia)) {          
             return true;
         }
 

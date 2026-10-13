@@ -31,6 +31,8 @@ public class main {
     public void runapp() {
         boolean ganaste = false;
         int seleccion = 0;
+        String difficultyString;
+        int difficulty =0;
         Baraja deck = new Baraja();
         ArrayList<Card> baraja = deck.HacerBaraja();
         ArrayList<Card> Mezcla = deck.MezclarCartas(baraja);
@@ -53,6 +55,8 @@ public class main {
 
         while (continuar) {
             System.out.println("-".repeat(10) + "Brisca!" + "-".repeat(10));
+            difficultyString = scan.nextLine();
+            difficulty = Integer.parseInt(difficultyString);
             System.out.print("VIDA ->");
             System.out.print(vida.getSuitName());
             System.out.println();
@@ -77,8 +81,15 @@ public class main {
             } catch (Exception e) {
             }
             Card playerCard = manoDelJugador.get(seleccion - 1);
-            int IaUsa = game.decidirCartaIA(playerCard, manoDeIA, vida, pointP, pointA);
-            // int IaUsa = game.numeroRandom(manoDeIA);
+            int IaUsa = 0;
+            if(difficulty==2 || difficulty!=1){
+
+             IaUsa = game.decidirCartaIA(playerCard, manoDeIA, vida, pointP, pointA);
+            }
+            else if(difficulty==1){
+             IaUsa = game.numeroRandom(manoDeIA);
+            }
+
             clearScreen();
 
             boolean winnerOfHand = game.GanadorDeMano(manoDelJugador, manoDeIA, seleccion, IaUsa, vida);

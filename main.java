@@ -52,7 +52,7 @@ public class main {
         Card vida = Mezcla.get(game.numeroRandom(manoDeIA));
         manoDelJugador = game.DarCartas(Mezcla, inicioDeMano);
         manoDeIA = game.DarCartas(Mezcla, inicioDeMano);
-        System.out.println("Enter 2 for diffcult mode");
+        System.out.println("Press 1 for easy or 2 for hard");
         difficultyString = scan.nextLine();
  
 
@@ -75,7 +75,7 @@ public class main {
             if (ansString.isEmpty()) {
                 clearScreen();
                 System.out.println("Elige algo");
-               waitSeconds(2);
+               waitSeconds(1);
                 clearScreen();
                 continue;
             }
@@ -133,7 +133,7 @@ public class main {
                 game.refill(Mezcla, manoDeIA);
             }
 
-            waitSeconds(2);
+            scan.nextLine();
 
             clearScreen();
 

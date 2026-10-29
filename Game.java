@@ -5,7 +5,7 @@ public class Game {
 
     private final int cardlimit = 3;
 
-    public ArrayList<Card> DarCartas(ArrayList<Card> shuffled, int playerCardsCount) {
+    public ArrayList<Card> DarCartas(ArrayList<Card> shuffled, int playerCardsCount) {      
         ArrayList<Card> card = new ArrayList<>();
         for (int i = 0; i < cardlimit; i++) {
             card.add(shuffled.remove(0));
@@ -135,7 +135,7 @@ public class Game {
 
         for (int idx : winningIndices) {
             Card c = aiHand.get(idx);
-            if (aiPoints + playerPointsInTrick + c.getPoints() >= 61) {
+            if (aiPoints + playerPointsInTrick + c.getPoints() >= 61) 
                 return idx + 1;
             }
         }

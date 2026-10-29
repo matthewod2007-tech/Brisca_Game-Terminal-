@@ -54,6 +54,7 @@ public class main {
         manoDeIA = game.DarCartas(Mezcla, inicioDeMano);
         System.out.println("Press 1 for easy or 2 for hard");
         difficultyString = scan.nextLine();
+        clearScreen();
  
 
         while (continuar) {
@@ -127,6 +128,7 @@ public class main {
             System.out.println();
             System.out.println("Tus puntos:" + pointP);
             System.out.println("Puntos de ia: " + pointA);
+            System.out.println("Cartas restanter en baraja: "+Mezcla.size());
 
             if (manoDelJugador.size() != 1 && manoDeIA.size() != 1) {
                 game.refill(Mezcla, manoDelJugador);
